@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Add new book</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/MainCSS.css" th:href="@{/css/MainCSS.css}" rel="stylesheet" />
+</head>
+<body>
+ 
+ <h2>
+ Add book
+ </h2>
+<form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
+
+	<p>
+	<td>Title:</td>
+	</p>
+    <div>
+    <input type="text" th:field="*{title}" />
+    <label th:if="${#fields.hasErrors('title')}" th:errors="*{error}">Enter Id</label>
+    </div>
+    
+    <p>
+    <td>Author:</td>
+    </p>
+    <p>
+    <td><input type="text" th:field="*{author}" /></td>
+    <td th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</td>
+    </p>	
+    
+    <p>	
+    <td>Genre:</td>
+    </p>
+    <p>
+    <td><input type="text" th:field="*{genre}" /></td>
+    <td th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">Genre Error</td>
+    </p> 
+        <p><button type="submit">Submit</button></p>
+    
+   </form>
+   
+    <p>
+      <a href="../index.html" th:href="@{/}">Return to home</a>
+	</p>
+ 
+ 
+</body>
+</html>	

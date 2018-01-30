@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Update book</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/MainCSS.css" th:href="@{/css/MainCSS.css}" rel="stylesheet" />
+</head>
+<body>
+ 
+ <h1>
+ Update book
+ </h1>
+<form action="#" th:action="@{/book/edit/{id}(id=${book.id})}" modelAttribute="updateForm" th:object="${book}" method="post">
+	<p>
+	<td>ID:</td>
+	</p>
+	<p>
+    <div><input type="text" th:field="*{id}" /></div>
+    <div th:if="${#fields.hasErrors('id')}" th:class="error">Title Error</div>
+    </p>
+
+
+	<p>
+	<td>Title:</td>
+	</p>
+	<p>
+    <td><input type="text" th:field="*{title}" /></td>
+    <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</td>
+    </p>
+    
+    <p>
+    <td>Author:</td>
+    </p>
+    <p>
+    <td><input type="text" th:field="*{author}" /></td>
+    <td th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</td>
+    </p>	
+    
+    <p>	
+    <td>Description:</td>
+    </p>
+    <p>
+    <td><input type="text" th:field="*{genre}" /></td>
+    <td th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">Genre Error</td>
+    </p> 
+        <p><button type="submit">Submit</button></p>
+    
+   </form>
+   
+    <p>
+      <a href="../books.html" th:href="@{/books}">Return to books list</a>
+	</p>
+    <p>
+      <a href="../index.html" th:href="@{/}">Return to home</a>
+	</p>
+ 
+ 
+</body>
+</html>	
